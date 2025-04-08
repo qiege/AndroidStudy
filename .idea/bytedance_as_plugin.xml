@@ -3,7 +3,8 @@
   <component name="mboxProjectView">
     <option name="contentRoots">
       <list>
-        <option value="$PROJECT_DIR$/Groovy" />
+        <option value="$PROJECT_DIR$/LeePlugin" />
+        <option value="$PROJECT_DIR$/TestDemoLib" />
         <option value="$PROJECT_DIR$" />
         <option value="$PROJECT_DIR$/app" />
       </list>

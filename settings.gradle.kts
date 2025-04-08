@@ -3,10 +3,14 @@ pluginManagement {
         google()
         mavenCentral()
         gradlePluginPortal()
+        maven {
+            url = uri("./Plugins/build/maven-repo")
+        }
     }
+
 }
 dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
     repositories {
         google()
         mavenCentral()
@@ -15,4 +19,19 @@ dependencyResolutionManagement {
 
 rootProject.name = "AndroidStudy"
 include(":app")
-include(":Groovy")
+include(":utils")
+gradle.settingsEvaluated {
+    println("leeee start init" + pluginManagement)
+}
+
+gradle.addListener(object: TaskExecutionListener {
+
+    override fun beforeExecute(task: Task) {
+        println("---Gradle：Task ${task.name} beforeExecute---")
+    }
+
+    override fun afterExecute(task: Task, state: TaskState) {
+        println("---Gradle：Task ${task.name} afterExecute---")
+    }
+})
+include(":Plugins")
